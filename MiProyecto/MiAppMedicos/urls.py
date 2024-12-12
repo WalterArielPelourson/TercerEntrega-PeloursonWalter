@@ -16,9 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from MiAppMedicos import views
 from .views import medico_view
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('medico/', medico_view, name='medico_form')
+urlpatterns = [  
+    path('App/', views.portada), 
+    path('AltaMedico/', views.AltaMedico), 
 ]
+
+formaltamedico_html = [
+    path('alta-medico/', views.AltaMedico, name="AltasMedicos")
+ 
+]
+
+urlpatterns += formaltamedico_html
