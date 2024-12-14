@@ -21,7 +21,7 @@ from .views import medico_view
 
 urlpatterns = [  
     path('App/', views.portada), 
-    path('AltaMedico/', views.AltaMedico), 
+    path('AltaMedico/', views.AltaMedico, name ="AltasMedicos"), 
 ]
 
 formaltamedico_html = [
