@@ -1,34 +1,15 @@
 # Create your views here.
 from django.shortcuts import render
 from .models import MedicoModels
+from .models import PacienteModels
 from .forms import MedicoForm
 import csv
 import os
 from MiAppMedicos.forms import MedicoForm
-
+from MiAppMedicos.forms import PacienteForm
 from django.http import HttpResponse
 
-#def medico_view(request):
-#    if request.method == 'POST':
- #       form = MedicoForm(request.POST)
- #       if form.is_valid():
- #           file_exists = os.path.isfile('medicos.csv')
- #           with open('medicos.csv', 'a', newline='') as file:
- #               writer = csv.writer(file)
- #               if not file_exists:
- #                   writer.writerow(['Nombre', 'Apellido', 'Matricula', 'Especialidad'])  # Escribir la cabecera
- #               writer.writerow([
- #                   form.cleaned_data['nombre'],
- #                   form.cleaned_data['apellido'],
- #                   form.cleaned_data['matricula'],
- #                   form.cleaned_data['profesion']
- #               ])
- #           form = MedicoForm()  # Resetear el formulario después de guardar
- #   else:
- #       form = MedicoForm()
-    
- #   return render(request, 'MiAppMedicos/altamedico.html'), {'form': form}
- 
+
  
 def portada (request):
      return render(request, 'MiAppMedicos/medicos.html')
@@ -37,15 +18,12 @@ def AltaMedico (request):
      return render(request, 'MiAppMedicos/altamedico.html')     
  
  
- 
-from MiAppMedicos.forms import MedicoForm
- 
 def medico_view(request):
  
     if request.method == "POST":
  
             miFormulario = MedicoForm(request.POST) # Aqui me llega la informacion del html
-            print(miFormulario)
+            #print(miFormulario)
  
             if miFormulario.is_valid():
                 informacion = miFormulario.cleaned_data
@@ -57,3 +35,20 @@ def medico_view(request):
  
     return render(request, "MiAppMedicos/altamedico.html", {"miFormulario": miFormulario})
  
+ 
+def paciente_view(request):
+ 
+    if request.method == "POST":
+ 
+            miformulario = PacienteForm(request.POST) # Aqui me llega la informacion del html
+            #print(miformulario)
+ 
+            if miformulario.is_valid():
+                informacion = miformulario.cleaned_data
+                paciente = PacienteModels(nombre=informacion["nombre"], apellido=informacion["apellido"], obrasocial=informacion["obrasocial"], edad=informacion["edad" ])
+                paciente.save()
+                return render(request, "MiAppMedicos/medicos.html")
+    else:
+            miformulario = PacienteForm()
+ 
+    return render(request, "MiAppMedicos/altapaciente.html", {"miformulario": miformulario})

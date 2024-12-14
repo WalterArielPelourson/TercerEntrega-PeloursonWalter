@@ -1,0 +1,17 @@
+{% extends "MiAppMedicos/medicos.html" %}
+
+{% load static %}
+
+{% block title %} Formulario para altas de pacientes {% endblock title %}
+
+{% block main %}
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{miformulario.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>    
+
+{% endblock main %}

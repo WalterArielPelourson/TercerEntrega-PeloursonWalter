@@ -10,7 +10,7 @@ class MedicoModels(models.Model):
     def __str__(self):
         return  f"{self.id} | Nombre: {self.nombre} | Apellido: {self.apellido} | Profesion: {self.profesion}"
     
-    ()
+    
 #Tabla Paciente
 class PacienteModels(models.Model):
     
@@ -18,6 +18,6 @@ class PacienteModels(models.Model):
     apellido = models.CharField(max_length=20)
     obrasocial = models.CharField(max_length=8)
     edad = models.IntegerField()
-    fechanacimiento = models.DateField()
+    
     def __str__(self):
-        return  f"{self.id} | Nombre: {self.nombre} | Apellido: {self.apellido} | Profesion: {self.obrasocial}"
+        return  f"{self.id} | Nombre: {self.nombre} | Apellido: {self.apellido} | Obra Social: {self.obrasocial} | Edad: {self.edad}"
