@@ -11,7 +11,7 @@ class MedicoModels(models.Model):
         return  f"{self.id} | Nombre: {self.nombre} | Apellido: {self.apellido} | Profesion: {self.profesion}"
     
     ()
-#Tabla Clientes
+#Tabla Paciente
 class PacienteModels(models.Model):
     
     nombre = models.CharField(max_length=20)

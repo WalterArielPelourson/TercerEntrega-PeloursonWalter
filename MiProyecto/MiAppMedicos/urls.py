@@ -20,13 +20,15 @@ from MiAppMedicos import views
 from .views import medico_view
 
 urlpatterns = [  
-    path('App/', views.portada), 
-    path('AltaMedico/', views.AltaMedico, name ="AltasMedicos"), 
+    path('', views.portada), 
+    #path('AltaMedico/', views.AltaMedico, name ="AltasMedicos"), 
 ]
 
 formaltamedico_html = [
     path('alta-medico/', views.AltaMedico, name="AltasMedicos")
  
 ]
-
-urlpatterns += formaltamedico_html
+forms_api_medico =[
+    path('ApiAltaMedico/',views.medico_view, name="AltaMed")
+]
+urlpatterns += formaltamedico_html + forms_api_medico
