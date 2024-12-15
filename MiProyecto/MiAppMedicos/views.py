@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from django.utils import timezone
 from .models import Turno
 from .forms import TurnoForm
-
+from .forms import ConsultaForm
 
  
 def portada (request):
@@ -69,8 +69,21 @@ def cargar_turno(request):
     return render(request, 'MiAppMedicos/cargar_turno.html', {'form': form})
 
 
+#Consulta Turnos
+#def consultar_turnos1(request):
+ #   hoy = timezone.now().date()
+ #   turnos = Turno.objects.filter(fecha=hoy)
+ #   return render(request, 'consultar_turnos.html', {'turnos': turnos})
 
-#def consultar_turnos(request):
-   # hoy = timezone.now().date()
-   # turnos = Turno.objects.filter(fecha=hoy)
-   # return render(request, 'consultar_turnos.html', {'turnos': turnos})
+def consultar_turnos(request):
+    if request.method == 'POST':
+        form1 = ConsultaForm(request.POST)
+        if form1.is_valid():
+            informacion = form1.cleaned_data
+           
+            turnos = Turno.objects.filter(fecha__icontains=informacion ["fecha"])
+            
+            return render(request,"MiAppMedicos/resultado_consultar.html", {"turnos": turnos})
+    else:
+        form1 = ConsultaForm()
+    return render(request, 'MiAppMedicos/consultar_turnos.html', {'form1': form1})

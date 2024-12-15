@@ -20,3 +20,8 @@ class TurnoForm(forms.ModelForm):
     class Meta:
         model = Turno
         fields = ['medico', 'paciente', 'fecha', 'hora']
+
+
+#Consulta Turnos
+class ConsultaForm(forms.Form):
+    fecha = forms.DateField()

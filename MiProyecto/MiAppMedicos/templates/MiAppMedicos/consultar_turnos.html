@@ -1,0 +1,18 @@
+{% extends "MiAppMedicos/medicos copy.html" %}
+
+{% load static %}
+
+{% block title %} Formulario para consultar turnos {% endblock title %}
+
+{% block main %}
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{form1.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>   
+  
+   
+{% endblock main %}

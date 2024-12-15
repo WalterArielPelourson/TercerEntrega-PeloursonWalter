@@ -1,0 +1,16 @@
+{% extends "MiAppMedicos/medicos copy.html" %}
+
+{% load static %}
+
+{% block title %} Formulario para consultar turnos {% endblock title %}
+
+{% block main %}
+       
+    <h2>Turnos de Hoy</h2>
+<ul>
+    {% for turno in turnos %}
+        <li>{{ turno.medico }} - {{ turno.paciente }} a las {{ turno.hora }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock main %}
