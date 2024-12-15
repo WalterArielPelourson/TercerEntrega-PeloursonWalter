@@ -36,4 +36,9 @@ forms_api_paciente =[
     path('ApiAltaPaciente/',views.paciente_view, name="AltaPac")
 ]
 
-urlpatterns += formaltamedico_html + forms_api_medico + forms_api_paciente
+CargaContultaTurnos = [
+    path('cargar_turno/', views.cargar_turno, name='cargar_turno'),
+   # path('consultar_turnos/', views.consultar_turnos, name='consultar_turnos'),
+]
+
+urlpatterns += formaltamedico_html + forms_api_medico + forms_api_paciente + CargaContultaTurnos 

@@ -1,4 +1,5 @@
 from django import forms
+from .models import Turno
 
 class MedicoForm(forms.Form):
     nombre = forms.CharField(max_length=20)
@@ -12,3 +13,10 @@ class PacienteForm(forms.Form):
     apellido = forms.CharField(max_length=20)
     obrasocial = forms.CharField(max_length=8)
     edad = forms.IntegerField()
+
+
+#Turnos
+class TurnoForm(forms.ModelForm):
+    class Meta:
+        model = Turno
+        fields = ['medico', 'paciente', 'fecha', 'hora']
