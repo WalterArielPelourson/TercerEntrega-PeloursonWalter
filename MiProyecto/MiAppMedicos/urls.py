@@ -20,8 +20,8 @@ from MiAppMedicos import views
 from .views import medico_view
 
 urlpatterns = [  
-    path('', views.portada), 
-    #path('AltaMedico/', views.AltaMedico, name ="AltasMedicos"), 
+    path('', views.portada, name="Portada"), 
+  
 ]
 
 formaltamedico_html = [
