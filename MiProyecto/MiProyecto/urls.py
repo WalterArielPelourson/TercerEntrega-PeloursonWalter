@@ -22,5 +22,5 @@ from MiAppMedicos import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include( 'MiAppMedicos.urls')),#views.portada),
-   # path('', views.AltaMedico),
+   
 ]

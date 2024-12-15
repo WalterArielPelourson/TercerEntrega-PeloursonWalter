@@ -6,10 +6,10 @@
 
 {% block main %}
        
-    <h2>Turnos de Hoy</h2>
+    <h2>Turnos de consultados</h2>
 <ul>
     {% for turno in turnos %}
-        <li>{{ turno.medico }} - {{ turno.paciente }} a las {{ turno.hora }}</li>
+        <li>MEDICO:{{ turno.medico }} - PACIENTE: {{ turno.paciente }} - EL DIA: {{ turno.fecha }} A LAS: {{ turno.hora }} HS</li>
     {% endfor %}
 </ul>
 

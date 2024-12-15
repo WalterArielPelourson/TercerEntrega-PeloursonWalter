@@ -31,4 +31,4 @@ class Turno(models.Model):
     hora = models.TimeField()
 
     def __str__(self):
-        return f"Turno con {self.medico} para {self.paciente} el {self.fecha} a las {self.hora}"
+        return f"Turno con {self.medico} para {self.paciente} el dia {self.fecha} a las {self.hora} Hs"

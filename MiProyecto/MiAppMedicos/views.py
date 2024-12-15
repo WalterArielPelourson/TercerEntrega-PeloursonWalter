@@ -69,11 +69,7 @@ def cargar_turno(request):
     return render(request, 'MiAppMedicos/cargar_turno.html', {'form': form})
 
 
-#Consulta Turnos
-#def consultar_turnos1(request):
- #   hoy = timezone.now().date()
- #   turnos = Turno.objects.filter(fecha=hoy)
- #   return render(request, 'consultar_turnos.html', {'turnos': turnos})
+
 
 def consultar_turnos(request):
     if request.method == 'POST':
